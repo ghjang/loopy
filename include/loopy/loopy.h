@@ -2,10 +2,11 @@
 #define LOOPY_H
 
 
+#include <type_traits>
 #include <array>
 
 
-namespace loopy
+namespace loopy::detail
 {
     template <typename T, T LoopDepth>
     struct loop_index_generator
@@ -13,7 +14,7 @@ namespace loopy
         using array_t = std::array<T, LoopDepth>;
 
         template <typename F>
-        void operator () (F && f)
+        void operator () (F && f) const
         {
             array_t curLoopIndexVal;
             std::fill(curLoopIndexVal.begin(), curLoopIndexVal.end(), -1);
@@ -36,9 +37,16 @@ namespace loopy
 
         array_t const loopUpperLimitVal_;
     };
+} // namespace loopy::detail
 
 
-    template <typename... T>
+namespace loopy
+{
+    template
+    <
+        typename... T,
+        typename = std::enable_if_t<std::conjunction_v<std::is_integral<T>...>>
+    >
     auto loop(T... i)
     {
         using common_t = std::common_type_t<T...>;
@@ -46,10 +54,10 @@ namespace loopy
         static_assert(std::is_integral<common_t>());
         static_assert(std::is_signed<common_t>());
 
-        return loop_index_generator<
+        return detail::loop_index_generator<
                         common_t,
                         sizeof...(i)
-            >{ i... };
+               >{ i... };
     }
 } // namespace loopy
 
