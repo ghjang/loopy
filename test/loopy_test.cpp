@@ -57,3 +57,15 @@ TEST_CASE("loop", "[loopy]")
 
     // ...
 }
+
+TEST_CASE("loop_indices_for", "[loopy]")
+{
+    constexpr auto indices = loop_indices_for<int, 2, 2>();
+    static_assert(indices.size() == 4);
+    for (auto & loopIndexArr : indices) {
+        for (auto i : loopIndexArr) {
+            std::cout << i << ' ';
+        }
+        std::cout << '\n';
+    }
+}
