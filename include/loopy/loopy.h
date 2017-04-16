@@ -2,6 +2,9 @@
 #define LOOPY_H
 
 
+#include <array>
+
+
 namespace loopy
 {
     template <typename T, T LoopDepth>
