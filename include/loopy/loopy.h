@@ -3,6 +3,7 @@
 
 
 #include "loop.h"
+#include "permutation.h"
 
 
 #endif // LOOPY_H

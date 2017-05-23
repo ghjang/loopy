@@ -69,3 +69,15 @@ TEST_CASE("loop_indices_for", "[loopy]")
         std::cout << '\n';
     }
 }
+
+TEST_CASE("permutation", "[loopy]")
+{
+    std::cout << "//==== permutation\n";
+
+    // This will print all the permutations generated from '0, 1, 2'.
+    permutation<3>()(
+        [](auto i, auto j, auto k) {
+            std::cout << '(' << i << ", " << j << ", " << k << ")\n";            
+        }
+    );
+}
