@@ -3,6 +3,7 @@
 
 
 #include "loop.h"
+#include "factorial.h"
 #include "permutation.h"
 
 
