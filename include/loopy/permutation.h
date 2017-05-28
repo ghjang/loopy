@@ -28,6 +28,24 @@ namespace loopy::detail
 
 namespace loopy
 {
+    constexpr auto permutation_v(int n, int r = -1)
+    {
+        if (-1 == r) {
+            r = n;
+        } else if (0 == r) {
+            n = 0;
+        }
+        int v = n;
+        if (0 == n) {
+            v = 1;
+            r = 0;
+        }
+        for ( ; r > 1; --r) {
+            v *= --n;
+        }
+        return v;
+    }
+
     template <unsigned char n>
     auto permutation()
     {

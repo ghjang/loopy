@@ -76,6 +76,18 @@ TEST_CASE("factorial_v", "[loopy]")
     static_assert(factorial_v(5) == 5 * 4 * 3 * 2 * 1);
 }
 
+TEST_CASE("permutation_v", "[loopy]")
+{
+    static_assert(permutation_v(0) == 1);
+    static_assert(permutation_v(5) == 5 * 4 * 3 * 2 * 1);
+    static_assert(permutation_v(5, 0) == 1);
+    static_assert(permutation_v(5, 1) == 5);
+    static_assert(permutation_v(5, 2) == 5 * 4);
+    static_assert(permutation_v(5, 3) == 5 * 4 * 3);
+    static_assert(permutation_v(5, 4) == 5 * 4 * 3 * 2);
+    static_assert(permutation_v(5, 5) == 5 * 4 * 3 * 2 * 1);
+}
+
 TEST_CASE("permutation", "[loopy]")
 {
     std::cout << "//==== permutation\n";
