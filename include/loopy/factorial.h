@@ -6,7 +6,7 @@ namespace loopy
 {
     constexpr auto factorial_v(int n)
     {
-        int v = n;
+        int v = n ? n : 1;
         while (n > 1) {
             v *= --n;
         }

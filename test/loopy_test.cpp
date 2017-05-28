@@ -72,6 +72,7 @@ TEST_CASE("loop_indices_for", "[loopy]")
 
 TEST_CASE("factorial_v", "[loopy]")
 {
+    static_assert(factorial_v(0) == 1);
     static_assert(factorial_v(5) == 5 * 4 * 3 * 2 * 1);
 }
 
