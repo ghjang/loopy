@@ -5,6 +5,7 @@
 #include "loop.h"
 #include "factorial.h"
 #include "permutation.h"
+#include "combination.h"
 
 
 #endif // LOOPY_H

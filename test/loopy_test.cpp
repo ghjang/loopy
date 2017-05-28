@@ -101,5 +101,11 @@ TEST_CASE("permutation", "[loopy]")
 
 TEST_CASE("combination_v", "[loopy]")
 {
-    
+    static_assert(combination_v(0, 0) == 1);
+    static_assert(combination_v(5, 0) == 1);
+    static_assert(combination_v(5, 1) == 5);
+    static_assert(combination_v(5, 2) == 10);
+    static_assert(combination_v(5, 3) == 10);
+    static_assert(combination_v(5, 4) == 5);
+    static_assert(combination_v(5, 5) == 1);
 }
