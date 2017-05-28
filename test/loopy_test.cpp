@@ -98,3 +98,8 @@ TEST_CASE("permutation", "[loopy]")
         }
     );
 }
+
+TEST_CASE("combination_v", "[loopy]")
+{
+    
+}
